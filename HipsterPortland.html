@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Hipster Portland</title>
+	<link rel="shortcut icon" href="img/icon.ico" >
+	<link rel="stylesheet" type="text/css" href="styleAPI.css">
+	<!--[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+<link href='http://fonts.googleapis.com/css?family=Cabin+Sketch' rel='stylesheet' type='text/css'><script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 'Cabin+Sketch::latin' ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44674931-1', 'rashaunamead.com');
+  ga('send', 'pageview');
+
+</script>
+  
+	<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+</head>
+<body>
+	<div id="wrapper">
+		<h1>-Portland, Oregon: Hipster Guide- <a href="#"></a></h1>
+		<div id="map">
+        </div> <ul div id="legend">
+        <h3>Legend</h3>
+         <li>Accommodation</li>
+         <li><img src="imgMine/bed16.png" width="16" height="16"> Hotel</li>
+         <li>Entertainment</li>
+         <li><img src="imgMine/Game16.png" width="16" height="16"> Arcade </li>
+         <li><img src="imgMine/music16.png" width="16" height="16"> Concert Venue </li>
+         <li><img src="imgMine/Film16.png" width="16" height="16"> Movie Theaters</li>
+         <li>Stores</li>
+         <li><img src="imgMine/Bike24.png" width="16" height="16"> Bike Shop</li>
+         <li><img src="imgMine/Glasses16.png" width="16" height="16"> Book Stores</li>
+         <li><img src="imgMine/Shirt16.png" width="16" height="16"> Clothes Shops</li>
+         <li><img src="imgMine/Record16.png" width="16" height="16"> Record Stores</li>
+         <li><img src="imgMine/Shopping16.png" width="16" height="16"> Other Stores</li>
+         <li>Food </li>
+         <li><img src="imgMine/Coffee16.png" width="16" height="16"> Coffee Shop</li>
+         <li><img src="imgMine/Food16.png" width="16" height="16"> Restaurants </li>
+         <li><img src="imgMine/Beer16.png" width="16" height="16"> Pubs</li>
+         <li>Tours</li>
+         <li><img src="imgMine/TourDark16-01.png" width="16" height="16"> Tour</li>
+         </ul>
+        </div>  <!-- map is placed within this div -->
+		
+	<p id="portland"> Welcome to Portland Hipster Guide!<br><br>  
+	When visiting Portland for the first time, don't worry - this guide will help you find all the places that most people don't even know about.  You can easily spend your days in Portland without being bothered by pesky mainstream businesses or activities.  Want to catch a concert for a band that you can claim you knew about before anyone else?  Well, you are in the right place. Portland has plenty of venues where you can catch a show of a band before they become cool.  And don't fret, all of the coffee shops and restaurants aren't just independently-owned, they source local too.  Need to find a vintage LP for your newly purchased thrift store record player?  Fear not, Portland has a host of off the beaten path record stores for you! Here in Stumptown you can live it up hipster-style (but we'll keep that hipster part on the DL).
+     </p>
+  
+       
+         </div><!-- end wrapper -->	
+	<script type="text/javascript">
+
+	 var styles = [
+	    { stylers: [
+	        { hue: "#ffff" },
+	        { saturation: -100 },
+	        {lightness: 5}
+	      ]
+	    },
+
+	    { featureType: "road",
+	      elementType: "geometry.fill",
+	      stylers: [
+	      	    
+
+	        { lightness: 50 },
+	        { visibility: "simplified" }
+	      ]
+	    },
+
+	    { featureType: "road",
+	      elementType: "labels",
+	      stylers: [
+
+	        { visibility: "on" }
+	      ]
+	    },
+	    { featureType: "water",
+	      
+	      stylers: [
+
+	        { hue: "#ffff" },
+	        { saturation: 30 },
+	        {lightness: 10}
+	      ]
+	  },
+	  { featureType: "water",
+	      elementType: "labels",
+	      stylers: [
+
+	       { hue: "#ffff" },
+	        { saturation: -100 },
+	        {lightness: -0}
+	      ]
+	  }
+
+	  ];
+
+
+
+
+	   // Create a new StyledMapType object, passing it the array of styles,
+	  // as well as the name to be displayed on the map type control.
+	  var styledMap = new google.maps.StyledMapType(styles,
+	    {name: "Simple"});
+
+
+	   // Create a map object, and include the MapTypeId to add
+  // to the map type control.
+	  var mapOptions = {
+	    zoom: 13,
+	    center: new google.maps.LatLng(45.526434,-122.669392),
+	    mapTypeControlOptions: {
+	      mapTypeIds: [google.maps.MapTypeId.HYBRID, 'map_style']
+	    }
+	  };
+
+
+		
+
+
+
+		 var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+	  //Associate the styled map with the MapTypeId and set it to display.
+	  map.mapTypes.set('map_style', styledMap);
+	  map.setMapTypeId('map_style');
+
+
+
+	map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(
+  document.getElementById('legend'));
+
+		// populate an array with our data
+		var locations = [
+			["Wunderland",45.516452,-122.628456,"<a href=http://www.wunderlandgames.com/locations.asp> Wunderland</a>","A vintage video game shop that will bring back all of your childhood memories for just a nickel." ],
+			["Museum",45.509372,-122.649847,"<a href= http://www.thehatmuseum.com/> The Hat Museum </a>","This quirky museum of hats will fill your head not only with information, but you may even leave with a spanking new hat from the gift shop."],
+			["Tour",45.524542,-122.673215,"<a href=http://www.portlandwalkingtours.com/tours/beyond_bizarre.php> Beyond Bizarre Ghost Tour </a> ","A chance to go ghost hunting! On this tour you can enter the supernatural realm of Portland.  You may even meet Nina, a former 'working girl,' who has been known to haunt the 1888 Merchant Hotel."],
+			["Tour",45.531636,-122.661451,"<a href=http://www.experiencebrewvana.com/> Brewvana</a>","Hop onto a short bus for this microbrewery tour of Portland’s hoppalicious brews. The tours usally last four hours and have a knowledgeable guide along for the ride to enlighten your taste buds."],
+			["Tour",45.521579,-122.672954,"<a href=http://pedalbiketours.com/bike-tours/portland.shtml> Pedal Bike Tour</a>","Portland is known for their love of bikes. This tour company will help you explore some of Portland’s vast bike trails.  Many different abilities and tour lengths are available."],
+			["Tour",45.52382,-122.683253,"<a href=http://brewcycleportland.com/brewstops/> Brewcycle</a> ","Bikes + Beer = Brewcycle. This tour encaptures two of Portlander's loves.  Pedal the caravan pub to pub to sip on delicious beer and take it easy because the driver is the DD. All you have to do is pedal!"],
+			["Concert",45.52274,-122.656853,"<a href=http://dougfirlounge.com/> Doug Fir</a>","Open since 2004, the Doug Fir has been one of Portland’s favorite venues.  Doug Fir is a swank yet comfortable club."],
+			["Concert",45.501102,-122.654253,"<a href=http://www.aladdin-theater.com/> Aladdin Theater</a>","The Aladdin has seen many changes since it opened in 1928. It served as a family movie theater from the 1930’s to the 1970’s.  It then took a major detour and became an adult theater showing x-rated films until the mid 90’s when it began to be promoted as a concert venue.  Since then, it has risen to become one of the main live music destinations in Portland. "],
+			["Concert",45.558946,-122.634747,"<a href=http://www.albertarosetheatre.com/> Alberta Rose Theater</a>","Located in the heart of the Alberta Arts District, the Alberta Rose is the place to see live performances and listen to acoustic music.  It originally opened in 1927 as a movie theater, until it's transformation in the late 70’s."],
+			["Concert",45.522723,-122.684786,"<a href=http://www.mcmenamins.com/425-crystal-ballroom-home> Crystal Ballroom</a>","The Crystal Ballroom is a historic venue to see shows and kick your feet up and dance."],
+			["Record",45.519935,-122.673354,"<a href=http://www.2ndavenuerecords.com/> 2nd Avenue Records</a>","Need a place to find records, tapes, and vintage T’s? Look no further than 2nd Avenue.  Downtown's vinyl headquarters since 1982."],
+			["Record",45.511827,-122.627088,"<a href=http://www.jackpotrecords.com/> Jackpot Records</a>","Jackpot Records has Portland’s finest selection of new and used records, CDs and collectibles."],
+			["Record",45.521457,-122.656661,"<a href=http://www.jackpotrecords.com/> Jackpot Records</a>","Jackpot Records is Portland’s finest selection of new and used records, CDs and collectibles."],
+			["Food",45.558949,-122.650928,"<a href=http://tinshedgardencafe.com/> Tin Shed</a>","The Tin Shed Garden Cafe prides itself on providing only the freshest, most wholesome products.  Tasty food and local beer on tap."],
+			["Food",45.559232,-122.655421,"<a href=http://www.thebyeandbye.com > The Bye and Bye</a>","The Bye and Bye has great vegan food in a reasonable price range.  Customers recommend the Eastern Bowl with out-of-this-world peanut sauce."],
+			["Food",45.504745,-122.632197,"<a href=http://www.pokpokpdx.com> Pok Pok</a>","This hip Thai restaurant will leave you with a full and happy belly.  Known for their Issan (Northern Thailand) cuisine. "],
+			["Food",45.522033,-122.681441,"<a href=http://www.clydecommon.com/> Clyde Common</a>","Clyde Common is a European style tavern serving delicious food and drinks in a casual and energizing space."],
+			["Food",45.550346,-122.666584,"<a href=http://www.lincolnpdx.com/ > Lincoln </a>","Known for their simple no-fuss food that will leave you wanting seconds."],
+			["Food",45.515399,-122.665659,"<a href=http://bokebowl.com/> BOKE</a>","The Pork Dashi Ramen at Boke is among one of the favorites of customers of this Water Ave. Asian Resturant."],
+			["Food",45.548206,-122.675457,"<a href=http://porquenotacos.com/ > ¿Por Que No?</a>","¿Por Que No? Strives to support the local economy of Portland through both their food sourcing and building materials.  Flavors from the Pacific Coast of Mexico to the mountains of Oaxaca can be found in the dishes served at the taqueria."],
+			["Food",45.516473,-122.618554,"<a href=http://www.slappycakes.com/ > Slappy Cakes</a>","Slappy Cakes allows you to make pancakes at your table.  The hot griddle is inset into the tables allowing customers to create their own pancake creations before their eyes."],
+			["Coffee",45.521741,-122.673276,"<a href=http://www.stumptowncoffee.com  > Stumptown Coffee</a>","This roastery and coffee shop offers some of Portland’s finest coffee."],
+			["Coffee",45.52223,-122.681892,"<a href=http://www.stumptowncoffee.com  > Stumptown Coffee</a>","This roastery and coffee shop offers some of Portland’s finest coffee."],
+				["Coffee",45.516326,-122.630288,"<a href=http://www.stumptowncoffee.com  > Stumptown Coffee</a>","This roastery and coffee shop offers some of Portland’s finest coffee."],
+			["Coffee",45.522985,-122.643231,"<a href=http://www.heartroasters.com/ > Heart</a>","Heart is a café, roastery, and bustling destination point located in the central eastside of Portland, Oregon. At Heart the motivation behind their coffee is simple: uncompromising quality."],
+			["Coffee",45.517772,-122.653953,"<a href=http://atlasobscura.com/place/rimsky-korsakoffee-house-skb> Rimsky-Korsakoffee House </a>","Enjoy sipping coffee at the Rimsky-Korsakoffee, located in a large Victorian house with a casual atmosphere."],
+			["Coffee",45.559165,-122.647298,"<a href=http://baristapdx.com/ > Barista</a>","A Portland favorite, with highly skilled baristas creating artisan coffee drinks."],
+			["Coffee",45.526961,-122.684419,"<a href=http://baristapdx.com/ > Barista</a>","A Portland favorite, with highly skilled baristas creating artisan coffee drinks."],
+			["Coffee",45.519251,-122.67514,"<a href=http://baristapdx.com/ > Barista</a>","A Portland favorite, with highly skilled baristas creating artisan coffee drinks."],
+			["Coffee",45.545792,-122.666564,"<a href=http://www.thewaypost.com/ > The Waypost Coffee & Tavern</a>","The Waypost coffeehouse and tavern is a cozy environment for whatever your beverage choice maybe."],
+			["Coffee",45.55226,-122.675527,"<a href=http://www.thefreshpot.com/ > The Fresh Pot</a>","An independent cafe with three locations in beautiful Portland.  Expect fresh coffee."],
+			["Coffee",45.512134,-122.625224,"<a href=http://www.thefreshpot.com/ > The Fresh Pot</a>","An independent cafe with three locations in beautiful Portland.  Expect fresh coffee."],
+			["Coffee",45.52077,-122.679537,"<a href=http://www.thefreshpot.com/ > The Fresh Pot</a>","An independent cafe with three locations in beautiful Portland.  Expect fresh coffee."],
+			["Coffee",45.52462,-122.648716,"<a href=http://www.facebook.com/SEESEECOFFEE > See See Motor Coffee Co</a>","Don’t only get coffee here - come to see the motorcycles parked out front."],
+			["Coffee",45.527938,-122.694389,"<a href=http://www.coffeetimeportland.com/ > Coffee Time</a>","Coffee Time serves coffee and teas, including Dragonfly Chai.  At Coffee Time they try to keep their business local. "],
+			["Shirt",45.559174,-122.640711,"<a href= > Billy Goat Vintage</a>","Billy Goat Vintage is all about style. On NE Alberta.  "],
+			["Shirt",45.562618,-122.634496,"<a href=http://redfoxvintage.com/ > Red Fox Vintage</a>","At Red Fox Vintage you can find all styles: modern, retro, shabby chic, western, boho styles and more."],
+			["Shopping",45.516136,-122.635975,"<a href=http://www.whiterabbitvintage.com/> White Rabbit Vintage</a>","Is it time to hipster up your home? White Rabbit may just have the vintage furniture you need."],
+			["Shirt",45.527986,-122.684962,"<http://www.lizardloungepdx.com/ > Lizard Lounge</a>","Is it time to hipster up your home? White Rabbit may just have the vintage furniture for you."],
+			["Book",45.52307,-122.681296,"<a href=http://www.powells.com/ > Powell’s City of Books</a>","One of Portland’s most cherished businesses. At Powell's you are encouraged to peruse their used and new books, find a corner to sit and read, or take a seat at their coffee shop. The Pearl location is one of the world's greatest bookstores with four stories to get lost in. "],
+			["Book",45.523479,-122.680918,"<a href=http://www.powells.com/ > Powell’s City of Books</a>","One of Portland’s most cherished businesses. At Powell's you are encouraged to peruse their used and new books, find a corner to sit and read, or take a seat at their coffee shop. The Pearl location is one of the worlds greatest bookstores with four stories to get lost in. "],
+			["Book",45.512049,-122.681221,"<a href=http://www.powells.com/ > Powell’s City of Books</a>","One of Portland’s most cherished businesses. At Powell's you are encouraged to peruse their used and new books, find a corner to sit and read, or take a seat at their coffee shop. The Pearl location is one of the worlds greatest bookstores with four stories to get lost in. "],
+			["Book",45.522624,-122.680509,"<a href=http://www.readingfrenzy.com/ > Reading Frenzy</a>","Small independent speciality bookshop and gallery devoted to alternative media and culture. "],
+			["Book",45.520255,-122.674193,"<a href=http://www.cameronsbooks.com/ > Cameron’s Books </a>","Cameron books is the largest independent vintage magazine retailer in the US."],
+			["Theater",45.511957,-122.625671,"<a href=http://http://www.mcmenamins.com%2Fevents%2Fsearch%2FMovie%3Flocation_id%3D99&ei=43uZUOueNIXu2QW4s4CoBg&usg=AFQjCNHieQfQl6SVeaWYlxez3uLWHMK2uA&sig2=LPurQNAqtnLjUzQUo1vWcQ > Bagdad Theatre & Pub</a>","Bagdad Theater opened in 1927 by Universal Pictures.  It is a historic theater with Arabian style. The perfect place to watch independent films. Ticket prices range from 3$ - 4$."],
+			["Theater",45.526429,-122.688168,"<a href=http://www.mcmenamins.com/events/search/Movie?location_id=63 > Mission Theater</a>","Want to eat pizza and drink beer while enjoying a movie? At the mission you can. "],
+			["Theater",45.503259,-122.639793,"<a href=http://cstpdx.com/ > Clinton Street Theater</a>","Clinton Street Theater is one of the oldest operating movie houses in the US.  It opened in 1915 and is famous for its long-standing exhibition of the Rocky Horror Picture Show"],
+			["Hotel",45.522087,-122.681642,"<a href=http://www.acehotel.com/portland > Ace Hotel</a>","Ace Hotel Portland is a small hotel in the historic Pearl District."],
+			["Hotel",45.522886,-122.656709,"<a href=http://www.jupiterhotel.com/ > Jupiter Hotel</a>","The Jupiter Hotel is a mid-century renovated motor-inn turned boutique hotel. Located in the heart of Portland."],
+			["Hotel",45.564483,-122.630285,"<a href=http://www.mcmenamins.com/KennedySchool > Kennedy School</a>","  The Kennedy School was opened in 1915 and was recently restored to its previous condition.  It is a hotel that will take you down memory lane of your old elementry school."],
+			["Hotel",45.520923,-122.687771,"<a href=http://www.hoteldeluxeportland.com/ > Hotel deLuxe</a>","A tribute hotel to the Golden Era of Hollywood."],
+			["Shopping",45.589934,-122.753201,"<a href=http://www.bluemooncamera.com/index.php > Blue Moon Camera Shop</a>","Blue Moon sells film cameras and operates one of the world’s last remaining optical printing labs."],
+			["Shopping",45.517789,-122.659733,"<a href=http://www.citizensphoto.com/ > Citizen Photo</a>","This is the place to find your camera experts, with a specialty in film.  You will get lost in this little shop with all of the specialty camera supplies they have jam-packed into the store for your discovery. "],
+			["Food",45.554618,-122.675513,"<a href=http://www.foodcartsportland.com/maps/ > Mississippi Marketplace</a>","Portland boasts about having over 175 food carts within city limits and has been hosting food carts since 1984. Grab a bite of truly unique food creations."],
+			["Food",45.512222,-122.653674,"<a href= > Cartopia</a>","Portland boasts about having over 175 food carts within city limits and has been hosting food carts since 1984. Grab a bite of truly unique food creations."],
+			["Food",45.516564,-122.617783,"<a href=http://www.foodcartsportland.com/maps/> Good Food Here</a>","Portland boasts about having over 175 food carts within city limits and has been hosting food carts since 1984. Grab a bite of truly unique food creations."],
+			["Pub",45.523911,-122.637139,"<a href=http://beulahlandpdx.com > Beulahland</a>","Beulahland is the soul of 28th Ave. This place has character of a unique variety. This is where you’ll find a combination of world-class daily artisan soups, pinball machines, infused vodkas and Pabst Blue Ribbon"],
+			["Pub",45.577027,-122.701948,"<a href=http://www.facebook.com/thefoggynotion > The Fog Notion Portland</a>","Friendly and fun rock and roll dance club/gastropub with a hipster queer bent. Short but sweet, menu features 100% locally sourced foodstuffs with killer pierogies ($2-9). Way cool bar top composed of classic album covers."],
+			["Pub",45.52213,-122.637771,"<a href=http://www.coalitionbrewing.com > Coalition Brewing</a>","Coalition Brewing is a pub and 10-barrel brewery. Their hand-crafted ales reflect traditional brewing techniques and Northwest innovation. They strive to provide their patrons with balanced, unique, and highly drinkable beers."],
+			["Pub",45.559159,-122.637497,"<a href=http://www.binksbar.com> Binks</a>","Binks is a neighborhood bar located in the heart of the Alberta Arts District. They serve fresh-squeezed cocktails, beer, wine, pizza, and salads."],
+			["Bike",45.511991,-122.632537,"<a href=http://www.velocebicycles.com/> Veloce Bicycles</a>","This small Portland bike shop was modeled after an old-world Italian neighborhood bicycle shop. Stop by and check out this locally owned store."],
+			["Bike",45.519806,-122.683257,"<a href=http://www.therecyclery.com> The Recyclery Bike Shop</a>","This shop is dedicated mainly to building road, track, touring and commuter bikes. Their focus is to re-build frames and provide help with repairs and parts."],
+			["Bike",522698,-122.643318,"<a href=http://www.northportlandbikeworks.org/about-us.html> North Portland Bike Works</a>","Bike Works is owned by a small group of mechanics that banded together to open up this shop on Mississippi.  It is a friendly place to shop for new bikes or get your own repaired."]
+			
+
+		];
+
+		var infowindow = new google.maps.InfoWindow();
+
+		var marker, i;
+					
+		for (i = 0; i < locations.length; i++) 
+		{
+			var iconImage, heading;
+			
+			switch(locations[i][0]) {
+				case "Museum":	
+					iconImage = "imgMine/TourDark16-01.png";
+					iconImage2 = "imgMine/TourDark.png";
+					heading = "<h2 class='museum'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+				case "Wunderland":
+					iconImage = "imgMine/game16.png";
+					iconImage2= "imgMine/game24.png";
+					heading = "<h2 class='Wunderland'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+				case "Tour":
+					iconImage = "imgMine/TourDark16-01.png";
+					iconImage2 = "imgMine/TourDark.png";
+					heading = "<h2 class='Tour'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;	
+					case "Concert":
+					iconImage = "imgMine/music16.png";
+					iconImage2 = "imgMine/music24.png";
+					heading = "<h2 class='Tour'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+					case "Record":
+					iconImage = "imgMine/Record16.png";
+					iconImage2 = "imgMine/Record24.png";
+					heading = "<h2 class='Tour'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+					case "Food":
+					iconImage = "imgMine/Food16.png";
+					iconImage2 = "imgMine/Food24.png";
+					heading = "<h2 class='Tour'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+					case "Coffee":
+					iconImage = "imgMine/Coffee16.png";
+					iconImage2 = "imgMine/COFFEE24.png";
+					heading = "<h2 class='Tour'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+					case "Shirt":
+					iconImage = "imgMine/Shirt16.png";
+					iconImage2 = "imgMine/Shirt24.png";
+					heading = "<h2 class='Tour'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+					case "Shopping":
+					iconImage = "imgMine/Shopping16.png";
+					iconImage2 = "imgMine/Shopping24.png";
+					heading = "<h2 class='Tour'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+					case "Book":
+					iconImage = "imgMine/Glasses16.png";
+					iconImage2 = "imgMine/Glasses24.png";
+					heading = "<h2 class='Tour'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+						case "Theater":
+					iconImage = "imgMine/Film16.png";
+					iconImage2 = "imgMine/film24.png";
+					heading = "<h2 class='Tour'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+						case "Hotel":
+					iconImage = "imgMine/bed16.png";
+					iconImage2 = "imgMine/bed24.png";
+					heading = "<h2 class='Tour'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+						case "Pub":
+					iconImage = "imgMine/beer16.png";
+					iconImage2 = "imgMine/beer24.png";
+					heading = "<h2 class='Tour'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+						case "Bike":
+					iconImage = "imgMine/bike16.png";
+					iconImage2 = "imgMine/bike24.png";
+					heading = "<h2 class='Tour'><img src="+iconImage2+" />"+locations[i][3]+"</h2>";
+					break;
+			}
+			marker = new google.maps.Marker({
+				icon: iconImage,
+				position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+				map: map
+			});
+			google.maps.event.addListener(marker, 'click', (function(marker, i, heading) {
+				return function() {
+					markerContent =	heading+"</h2><p><b>About:</b> "+ locations[i][4]+"</p>";
+					infowindow.setContent(markerContent);
+					infowindow.open(map, marker);
+				}
+			})(marker, i, heading));  // end marker click function
+		}; // end for loop		
+
+		
+
+
+	
+	
+
+// end for loop	
+	</script>
+</body>
+</html>
